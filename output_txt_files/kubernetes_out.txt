@@ -1,0 +1,36 @@
+Port: 58944
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+kubectl logs -f mlproject-77d4cf6d45-cvkjd
+
+[2021-03-01 17:48:06,077] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-03-01 17:48:06,091] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-03-01 17:48:06,103] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-03-01 17:48:06,115] INFO in app: Predicted value: 20.35373177134412
+172.17.0.1 - - [01/Mar/2021 17:48:06] "POST /predict HTTP/1.1" 200 -
+172.17.0.1 - - [01/Mar/2021 17:48:32] "GET / HTTP/1.1" 200 -
+
+minikube service mlproject
+
+|-----------|-----------|-------------|---------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |            URL            |
+|-----------|-----------|-------------|---------------------------|
+| default   | mlproject |          80 | http://192.168.49.2:32604 |
+|-----------|-----------|-------------|---------------------------|
+🏃  Starting tunnel for service mlproject.
+|-----------|-----------|-------------|------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |          URL           |
+|-----------|-----------|-------------|------------------------|
+| default   | mlproject |             | http://127.0.0.1:58944 |
+|-----------|-----------|-------------|------------------------|
+🎉  Opening service default/mlproject in default browser...
+❗  Because you are using a Docker driver on darwin, the terminal needs to be open to run it.

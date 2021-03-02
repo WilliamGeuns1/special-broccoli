@@ -11,6 +11,7 @@ dockerpath=williamgeuns/udacity-ml-project
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker tag mlk8s_app:latest $dockerpath
+docker login
 
 # Step 3:
 # Push image to a docker repository

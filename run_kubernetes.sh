@@ -8,6 +8,7 @@ dockerpath=williamgeuns/udacity-ml-project:latest
 
 # Step 2
 # Run the Docker Hub container with kubernetes
+docker login
 kubectl create deployment mlproject --image=$dockerpath
 
 # Step 3:
